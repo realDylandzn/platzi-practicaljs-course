@@ -14,11 +14,11 @@ console.groupEnd();
 //Formulas y código del calculo del Triángulo
 
 function perimetroTriangulo(lado1, lado2, base){
-    return lado1 + lado2 + base;
+    return (lado1 + lado2) + base;
 };
 
-function areaTriangulo(base, altura){
-    return (base * altura) / 2;
+function areaTriangulo(lado1, base){
+    return (Math.sqrt((lado1*lado1) - ((base*base)/4)));
 };
 console.groupEnd();
 
@@ -45,3 +45,54 @@ function areaCirculo(radio){
 
 console.groupEnd();
 
+//Conexión con HTML
+
+function calcularPCuadrado(){
+    const input = document.getElementById("InputCuadrado");
+    const value = input.value;
+    const perimetro = perimetroCuadrado(value);
+    alert(perimetro);
+};
+
+function calcularACuadrado(){
+    const input = document.getElementById("InputCuadrado");
+    const value = input.value;
+    const area = areaCuadrado(value);
+    alert(area);
+};
+
+function calcularPTriangulo() {
+    const inputA = document.getElementById("InputTrianguloLadoA");
+    const valueA = Number(inputA.value);
+    const inputB = document.getElementById("InputTrianguloLadoB");
+    const valueB = Number(inputB.value);
+    const inputBase = document.getElementById("InputTrianguloBase");
+    const valueBase = Number(inputBase.value);
+
+    const perimetro = perimetroTriangulo(valueA,valueB,valueBase);
+    alert(perimetro);
+};
+function calcularATriangulo() {
+    const inputA = document.getElementById("InputTrianguloLadoA");
+    const valueA = Number(inputA.value);
+
+    const inputBase = document.getElementById("InputTrianguloBase");
+    const valueBase = Number(inputBase.value);
+
+    const area = areaTriangulo(valueA, valueBase);
+    alert(area);
+};
+
+function calcularPCirculo(){
+    const input = document.getElementById("InputCirculo");
+    const value = input.value;
+    const perimetro = perimetroCirculo(value);
+    alert(perimetro);
+};
+
+function calcularACirculo(){
+    const input = document.getElementById("InputCirculo");
+    const value = input.value;
+    const area = areaCirculo(value);
+    alert(area);
+};
